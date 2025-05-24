@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Admin Reports{% endblock %}
+{% block content %}
+<h2>Reports</h2>
+<h3>Users</h3>
+<ul>
+  {% for user in users %}
+  <li>{{ user.id }} - {{ user.username }} - {{ user.email }}</li>
+  {% endfor %}
+</ul>
+<h3>Items</h3>
+<ul>
+  {% for item in items %}
+  <li>{{ item.id }} - {{ item.title }} - {{ item.category }} - Posted by User ID {{ item.user_id }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

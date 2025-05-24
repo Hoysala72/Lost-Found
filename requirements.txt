@@ -1,0 +1,8 @@
+Flask
+Flask-SQLAlchemy
+Flask-Login
+Flask-WTF
+email-validator
+Werkzeug
+qrcode
+Pillow

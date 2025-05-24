@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Found Items{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-4 mb-4">Found Items</h2>
+    <div class="items-grid">
+        {% for item in items %}
+        <div class="item-card">
+            {% if item.image %}
+            <div class="item-image-container">
+                <img src="{{ url_for('static', filename='uploads/' + item.image) }}" 
+                     alt="{{ item.title }}"
+                     class="item-image"
+                     loading="lazy">
+            </div>
+            {% endif %}
+            <div class="item-details">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description[:100] }}{% if item.description|length > 100 %}...{% endif %}</p>
+                {% if current_user.id == item.user_id or current_user.is_admin %}
+                <form action="{{ url_for('delete_item', item_id=item.id) }}" method="POST" 
+                      onsubmit="return confirm('Are you sure you want to delete this item?');">
+                    <button type="submit" class="btn btn-danger btn-sm w-100">Delete Item</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <div class="text-center p-4">
+            <p class="mb-0">No found items listed yet.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

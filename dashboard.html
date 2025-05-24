@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<div class="row">
+  <div class="col-md-3">
+    <div class="card text-bg-primary mb-3 p-3">
+      <h5>Total Users</h5>
+      <p class="display-6">{{ total_users }}</p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-bg-success mb-3 p-3">
+      <h5>Total Items</h5>
+      <p class="display-6">{{ total_items }}</p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-bg-info mb-3 p-3">
+      <h5>Found Items</h5>
+      <p class="display-6">{{ found_items }}</p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-bg-warning mb-3 p-3">
+      <h5>Lost Items</h5>
+      <p class="display-6">{{ lost_items }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
